@@ -7,24 +7,24 @@ public class MortgageCalculator {
         Scanner myScanner = new Scanner(System.in);
 // USER INPUT
         System.out.println("Enter is the principal amount: ");
-        double principalRes = myScanner.nextDouble(); // principal scanner
+        double principal = myScanner.nextDouble();
 
         System.out.println("What is the interest rate? ");
-        double interestRes = myScanner.nextDouble();
+        double annualInterestRate = myScanner.nextDouble(); // annual to monthly
+        double monthlyInterestRate = annualInterestRate / 12 / 100;
 
         System.out.println("What is the length of this loan in years? ");
-        int loanLengthRes = myScanner.nextInt();
-// DECLARING PREVIOUS VARIABLES
-        double principal = principalRes; //
-        double interest = interestRes;
-        double time = loanLengthRes;
+        int loanLengthInYears = myScanner.nextInt(); // years to months
+        int loanLengthInMonths = loanLengthInYears * 12;
+
 // CALCULATION
-        double monthlyPayment = (interest * principal) / (1f - (1f + interest (time*12)));
-        double totalInterest = (monthlyPayment * (time*12f)) - principal;
+        double monthlyPayment = (monthlyInterestRate * principal) /
+                (1.0 - Math.pow(1.0 + monthlyInterestRate, -loanLengthInMonths));
+        double totalInterest = (monthlyPayment * loanLengthInMonths) - principal;
 
 //OUTPUT
-        System.out.println("Monthly payment: " + String.format("%.2f",  monthlyPayment));
-        System.out.println("Total interest paid: " + String.format("%.2f",  totalInterest));
+        System.out.println("Monthly payment: $" + String.format("%.2f", monthlyPayment));
+        System.out.println("Total interest paid: $" + String.format("%.2f", totalInterest));
 
     }
 }
