@@ -14,7 +14,7 @@ public class CDInterestCalculator {
 
         System.out.print("Enter the number of years: ");
         int years = myScanner.nextInt();
-// CALCULATING THE FUTURE VALUE AND INTEREST SPEED
+// CALCULATING THE FUTURE VALUE AND INTEREST EARNED
         double interestRatePerPeriod = interestRate / 36500; //  Assume daily compounding
         int periods = years * 365;
         double futureValue = deposit*Math.pow(1 +interestRatePerPeriod, periods);

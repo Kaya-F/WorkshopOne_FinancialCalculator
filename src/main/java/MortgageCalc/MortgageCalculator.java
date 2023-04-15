@@ -16,11 +16,10 @@ public class MortgageCalculator {
         System.out.println("What is the length of this loan in years? ");
         int loanLengthInYears = myScanner.nextInt(); // years to months
         int loanLengthInMonths = loanLengthInYears * 12;
-// CALCULATION
-        double monthlyPayment = (monthlyInterestRate * principal) /
-                (1.0 - Math.pow(1.0 + monthlyInterestRate, -loanLengthInMonths));
+// CALCULATING THE MONTHLY PAY AND TOTAL INTEREST
+        double monthlyPayment = (monthlyInterestRate * principal) / (1.0 - Math.pow(1.0 + monthlyInterestRate, -loanLengthInMonths));
         double totalInterest = (monthlyPayment * loanLengthInMonths) - principal;
-// OUTPUT
+// DISPLAY OUTPUT/RESULTS
         System.out.println("Monthly payment: $" + String.format("%.2f", monthlyPayment));
         System.out.println("Total interest paid: $" + String.format("%.2f", totalInterest));
 
