@@ -15,13 +15,10 @@ public class AnnuityPresentValCalculator {
 
         System.out.print("Enter the number of years of payout: ");
         int years = myScanner.nextInt();
-// CALCULATING
         int months = years * 12;
+// CALCULATING
         double monthlyInterestRate = interestRate / 12;
+
         double presentValue = monthlyPayout * ((1 - Math.pow(1 + monthlyInterestRate, -months)) / monthlyInterestRate);
-// DISPLAY OUTPUT/RESULTS
-        System.out.printf("To fund an annuity that pays $%.2f monthly for %d years and earns an expected %.2f%% interest, you would need to invest $%.2f today.%n", monthlyPayout, years, interestRate * 100, presentValue);
-// CLOSE SCANNER
-        myScanner.close();
     }
 }
