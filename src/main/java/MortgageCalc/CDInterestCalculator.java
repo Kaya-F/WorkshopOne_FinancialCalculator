@@ -20,8 +20,9 @@ public class CDInterestCalculator {
         double futureValue = deposit*Math.pow(1 +interestRatePerPeriod, periods);
         double interestEarned = futureValue - deposit;
 // DISPLAY OUTPUT/RESULTS
-        System.out.printf("If you deposit $%.2f in a CD that earns %.2f%% interest and interest and matures in %d years,%n", deposit, interestRate, years);
-        System.out.printf("your CD's ending balance will be $%.2f and you would have earned $%2f in interest%n", futureValue, interestEarned);
-
+        System.out.println("Total interest earned: $" + String.format("%.2f", interestEarned));
+        System.out.println("your CD's ending balance: $"+ String.format("%.2f", futureValue));
+// CLOSE SCANNER
+        myScanner.close();
     }
 }
